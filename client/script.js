@@ -3,11 +3,15 @@
 ////////////////////////////////////////////////
 
 //const { default: axios } = require("axios")
+
+//const { default: axios } = require("axios")
 //const { text } = require("express")
 
 //const { default: axios } = require("axios")
 
 //const { default: axios } = require("axios")
+
+//app.use(express.json());
 
 // PROBLEM 1
 /*
@@ -160,7 +164,7 @@ function queryFun() {
 let queryBtn = document.querySelector('#query-button')
 queryBtn.addEventListener('click', queryFun)
 
-//add the query button to this....
+
 
 
 ////////////////
@@ -181,8 +185,10 @@ queryBtn.addEventListener('click', queryFun)
     In the function that you wrote for Problem 8, change the URL to test a couple different scenarios. 
 
     1: Send no queries on the URL -- what happened? 
+    It says in the console on the browser that I sent an empty query. In the terminal in VS code, it says that there is an error and cannot set headers after they are sent to the client.
 
     2: Send more than 1 query on the URL -- what happened? 
+    It displays as 1 value still but it attaches it to my first name that I sent in the code displayed in the console on the webpage.
 */
 
 // Edit code in Problem 8
@@ -213,3 +219,16 @@ queryBtn.addEventListener('click', queryFun)
 */
 
 // CODE HERE 
+
+function createFood() {
+    let foodInput = document.querySelector('#create-form')
+
+    let body = {
+        newFood: foodInput.value
+    }
+
+    axios.post(`http://localhost:3000`, body)
+        .then(function(res) {
+            console.log(res.data)
+        })
+}
